@@ -1,0 +1,48 @@
+<div class="main">
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <img ngSrc="assets/images/Logo.png" alt="image-user" height="70" width="215">
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="d-flex flex-column flex-shrink-0 bg-light" style="width: 4.5rem;">
+        <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+          <li class="nav-item" *ngFor="let item of menuOptions">
+            <a [routerLink]="item.path" routerLinkActive="active" class="nav-link py-3 border-bottom">
+              <fa-icon [icon]="item.icon"></fa-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="navbar bg-body-tertiary">
+          <div class="container-fluid flex-row-reverse">
+            <button class="btn btn-outline-secondary" (click)="onNew()">
+              <fa-icon icon="plus"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="mb-3 row">
+            <div class="col">
+              <div class="form-group">
+                <label for="filter" class="form-label">Search</label>
+                <input class="form-control" list="datalistOptions" id="filter" placeholder="Search here..." [(ngModel)]="toolbar.searchText" >
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="filter" class="form-label">Column to search</label>
+                <select class="form-select" style="width: auto" name="attribute" [(ngModel)]="toolbar.attributeText" >
+                  <option [ngValue]="item.attribute" *ngFor="let item of attributeOptions">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

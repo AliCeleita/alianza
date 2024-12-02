@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">{{ isnew ? 'Create' : 'Update' }} Client</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="dismiss()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" formControlName="businessID" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="">E-mail</label>
+          <input type="text" formControlName="email" class="form-control">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="">Phone</label>
+          <input type="text" pattern="^[0-9]{6,9}$" formControlName="phone" class="form-control">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="">End Date</label>
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" formControlName="dataFinished"
+                   ngbDatepicker #d="ngbDatepicker" [minDate]="minDate"/>
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button">
+              <fa-icon icon="calendar"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-primary" (click)="save()">Ok</button>
+</div>

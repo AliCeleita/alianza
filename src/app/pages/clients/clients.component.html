@@ -1,0 +1,19 @@
+<app-table
+    [columns]="[
+    { key: 'sharedKey', header: 'Shared Key' },
+    { key: 'businessID', header: 'Business ID', sortable: true },
+    { key: 'email', header: 'Email', sortable: true },
+    { key: 'phone', header: 'Phone', sortable: true },
+    { key: 'dataAdded', header: 'Data Added', sortable: true },
+  ]"
+    [data]="clients"
+    [total]="total"
+    [(page)]="page"
+    [querySearch]="querySearch"
+    [attributeSearch] ='attributeSearch'
+    [(pageSize)]="pageSize"
+    (edit)="edit($event)"
+    (delete)="delete($event)"
+></app-table>
+
+
